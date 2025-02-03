@@ -1,8 +1,8 @@
 const cont = document.querySelector("#container");
 
-function base() {
+function base(size) {
     
-    for (i = 0; i < 16; i++) {
+    for (i = 0; i < size; i++) {
     const row = document.createElement("div");
 
         row.addEventListener("mouseover", (event) => {
@@ -10,12 +10,12 @@ function base() {
             event.target.style.backgroundColor = "#ff8653";
             });
              
-                for(j = 0; j < 16; j++) {
+                for(j = 0; j < size; j++) {
                 const col = document.createElement("div");  
                 col.style.width = "30px";  
                 col.style.height = "30px";
                 col.style.backgroundColor = "#fffff";
-                col.style.border = "0.2px solid grey";
+                col.style.border = "0.01px solid grey";
                 row.appendChild(col);
                 
             
@@ -24,7 +24,7 @@ function base() {
                 }
 
             }
-            base();
+            base(16);
 
             
     const btn = document.querySelector("#new");
@@ -41,13 +41,13 @@ function base() {
                 event.target.style.backgroundColor = "#ff8653";
                 
                 });
-                        
+                        const nsp = 480 / person;
                         for(j = 0; j < person; j++) {
-                        const ncol = document.createElement("div");  
-                        ncol.style.width = "30px";  
-                        ncol.style.height = "30px";
+                        const ncol = document.createElement("div");
+                        ncol.style.width =  nsp + "px";   
+                        ncol.style.height =  nsp + "px";
                         ncol.style.backgroundColor = "#fffff";
-                        ncol.style.border = "0.2px solid grey";
+                        ncol.style.border = "0.01px solid grey";
                         nrow.appendChild(ncol);
                         
                       
@@ -59,8 +59,8 @@ function base() {
         if(person > 100){
             prompt("to big try again");
         } else if (person == null){
-            const person = prompt("enter new size max 100");
-            base();
+            alert("enter new size max 100");
+            base(16);
         }
 
     });
@@ -69,8 +69,5 @@ function base() {
 
     btn2.addEventListener("click", (event) => {
         cont.innerHTML = "";
-        base();
+        base(16);
     });
-    
-
-
